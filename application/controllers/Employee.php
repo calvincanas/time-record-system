@@ -13,13 +13,17 @@ class Employee extends CI_Controller {
 
 	public function index()
 	{
-		$data['employees'] = $this->employees_model->all();
-		$this->load->view('employees/list', $data);
+		$data['real_data']['employees'] = $this->employees_model->all();
+		$data['title'] = 'List Of Employees';
+		$data['main_content'] = 'employees/list';
+		$this->load->view('template', $data);
 	}
 
     public function create()
     {
-        $this->load->view('employees/create');
+		$data['title'] = 'Add Employee';
+		$data['main_content'] = 'employees/create';
+		$this->load->view('template', $data);
     }
 
     public function store()
@@ -45,13 +49,14 @@ class Employee extends CI_Controller {
 	public function edit($id)
     {
         $id = $this->uri->segment(3);
-        $data = array();
 
         if (empty($id)) {
 			show_404();
         } else {
-          	$data['employee'] = $this->employees_model->get_by_id($id);
-          	$this->load->view('employees/edit', $data);
+          	$data['real_data']['employee'] = $this->employees_model->get_by_id($id);
+			$data['title'] = 'Edit Employee';
+			$data['main_content'] = 'employees/edit';
+          	$this->load->view('template', $data);
         }
     }
 

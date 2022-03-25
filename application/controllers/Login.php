@@ -3,6 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Login extends CI_Controller
 {
+	public $guestAllowedMethods = array(
+		'index',
+		'process'
+	);
 
 	public function __construct()
 	{
