@@ -20,6 +20,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		require APPPATH . 'libraries/phpqrcode/phpqrcode.php';
+		$wew = QRcode::png('PHP QR Code :)');
+		echo $wew;
+//		$this->load->view('welcome_message');
 	}
 }
