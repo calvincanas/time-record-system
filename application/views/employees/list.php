@@ -23,7 +23,8 @@
 					<td><?php echo $employee->id; ?></td>
 					<td><?php echo $employee->first_name; ?></td>
 					<td><?php echo $employee->last_name; ?></td>
-					<td>View Logs</td>
+					<td><a href="<?php echo base_url('timelogger/record/' . $employee->id) ?>"
+						   class="btn btn-primary">View Time Record</a></td>
 					<td>
 						<a href="<?php echo base_url('employee/edit/' . $employee->id) ?>"
 						   class="btn btn-primary">Edit</a>

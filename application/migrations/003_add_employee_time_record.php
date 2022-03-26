@@ -14,15 +14,11 @@ class Migration_Add_Employee_Time_Record extends CI_Migration
 			'user_id' => array(
 				'type' => 'INT',
 			),
-			'time_in' => array(
+			'mode' => array(
 				'type' => 'VARCHAR',
 				'constraint' => '10',
 			),
-			'time_out' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '10',
-			),
-			'date_added datetime default current_timestamp',
+			'created_at datetime default current_timestamp',
 		));
 		$this->dbforge->add_field('id');
 		$this->dbforge->create_table('employee_time_record');
