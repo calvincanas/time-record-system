@@ -18,3 +18,10 @@ $hook['post_controller_constructor'][] = array(
 	'filename' => 'AuthenticationSentry.php',
 	'filepath' => 'hooks',
 );
+
+$hook['post_controller_constructor'][] = array(
+	'class' => 'SuperAdminAccessSentry',
+	'function' => 'isCurrentUserSuperAdmin',
+	'filename' => 'SuperAdminAccessSentry.php',
+	'filepath' => 'hooks',
+);

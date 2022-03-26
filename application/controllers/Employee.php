@@ -1,6 +1,8 @@
 <?php
 class Employee extends CI_Controller {
 
+	public $superAdminOnly = true;
+
     public function __construct()
     {
         parent::__construct();

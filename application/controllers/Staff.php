@@ -1,6 +1,7 @@
 <?php
 class Staff extends CI_Controller
 {
+	public $superAdminOnly = true;
 
 	public function __construct()
 	{
@@ -69,6 +70,7 @@ class Staff extends CI_Controller
         }
 
         $this->users_model->delete($id);
+
 
         redirect( base_url('staff/index') );
     }

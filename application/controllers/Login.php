@@ -36,12 +36,13 @@ class Login extends CI_Controller
 			$password = $this->input->post('password');
 
 			if ($this->users_model->can_login($username, $password)) {
-				$this->db->where('user_name', $username);
-				$query = $this->db->get('user');
-				$user_row = $query->row();
+				$query = $this->db->get_where('user', array('user_name' => $username));
+        		$user_row = $query->row();
+
 				$session_data = array(
 					'username' => $username,
 					'user_id' => $user_row->id,
+					'user_type' => $user_row->user_type,
 				);
 				$this->session->set_userdata($session_data);
 				redirect(base_url('login/success')); // dapat sa dashboard ng admin or time emp
@@ -55,13 +56,16 @@ class Login extends CI_Controller
 	}
 
 	public function success() {
-		echo '<h2>Welcome - ' . $this->session->userdata('username') . '</h2>';
-		echo '<label><a href="' . base_url('employee/create') . '">Create Employee</a></label>';
-		echo '<label><a href="' . base_url('login/logout') . '">Logout</a></label>';
+		$data['title'] = 'Dashboard';
+		$data['main_content'] = 'logins/success';
+		$this->load->view('template', $data);
 	}
 
 	public function logout() {
 		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('user_id');
+		$this->session->unset_userdata('user_type');
+
 		redirect(base_url('login/index'));
 	}
 }
