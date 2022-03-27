@@ -20,10 +20,6 @@ class Login extends CI_Controller
 
 	public function index()
 	{
-//		require APPPATH . 'libraries/phpqrcode/phpqrcode.php';
-//		$wew = QRcode::png('PHP QR Code :)');
-//		echo $wew;
-
 		$this->load->view('login');
 	}
 

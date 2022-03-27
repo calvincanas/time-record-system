@@ -16,6 +16,7 @@
 				<th>ID</th>
 				<th>First Name</th>
 				<th>Last Name</th>
+				<th>QR Code Generated</th>
 				<th>Time Record Logs</th>
 				<th>Action</th>
 			</tr>
@@ -27,6 +28,9 @@
 						<td><?php echo $employee->id; ?></td>
 						<td><?php echo $employee->first_name; ?></td>
 						<td><?php echo $employee->last_name; ?></td>
+						<td>
+							<img src="<?php echo base_url('employee/generateqrcode') . '?id=' . $employee->id ?>">
+						</td>
 						<td><a href="<?php echo base_url('timelogger/record/' . $employee->id) ?>"
 							   class="btn btn-primary">View Time Record</a></td>
 						<td>
