@@ -12,13 +12,13 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group">
-				<strong>Title</strong>
+				<strong>First Name</strong>
 				<input type="text" name="first_name" class="form-control" placeholder="First Name">
 			</div>
 		</div>
 		<div class="col-md-12">
 			<div class="form-group">
-				<strong>Title</strong>
+				<strong>Last Name</strong>
 				<input type="text" name="last_name" class="form-control" placeholder="Last Name">
 			</div>
 		</div>

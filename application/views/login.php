@@ -26,7 +26,7 @@
 	</div>
 
 
-	<form action="<?php echo base_url('login/process') ?>" method="POST" name="login_form">
+	<form action="<?php echo base_url('login/process') ?>" method="POST" name="login_form" id="login-form">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
@@ -38,20 +38,18 @@
 			<div class="col-md-12">
 				<div class="form-group">
 					<strong>Password</strong>
-					<input type="password" name="password" class="form-control" placeholder="Password">
+					<input type="password" name="password" id="password-input" class="form-control"
+						   placeholder="Password">
 					<span class="text-danger"><?php echo form_error('password'); ?></span>
 				</div>
 			</div>
 			<div class="col-md-12">
 				<button type="submit" class="btn btn-primary">Submit</button>
 				<?php
-					echo '<label class="text-danger">' . $this->session->flashdata("error") . '</label>';
+				echo '<label class="text-danger">' . $this->session->flashdata("error") . '</label>';
 				?>
 			</div>
 		</div>
-
-
 </div>
-
 </body>
 </html>

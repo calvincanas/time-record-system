@@ -74,4 +74,16 @@ class Staff extends CI_Controller
 
         redirect( base_url('staff/index') );
     }
+
+	public function deletes()
+	{
+		$data = json_decode(file_get_contents('php://input'), true);
+		$ids = $data['ids'];
+		$this->users_model->massDelete($ids);
+		header('Content-Type: application/json');
+		echo json_encode(array(
+			'status' => 'success'
+		));
+		die();
+	}
 }

@@ -42,4 +42,10 @@ class Employees_model extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->delete('employee');
     }
+
+	public function massDelete($ids)
+	{
+		$this->db->where_in('id', $ids);
+        return $this->db->delete('employee');
+	}
 }
